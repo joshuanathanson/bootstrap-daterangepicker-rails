@@ -44,6 +44,9 @@
         //tracks visible state
         this.isShowing = false;
 
+        // tracks whether calendars have been swapped left/right
+        this.swappedPositions = false;
+
         //create the picker HTML object
         var DRPTemplate = '<div class="daterangepicker dropdown-menu">' +
                 '<div class="calendar left"></div>' +
@@ -142,7 +145,6 @@
             this.ranges = {};
 
             this.opens = 'right';
-            this.swappedPositions = false;
 
             if (this.element.hasClass('pull-right'))
                 this.opens = 'left';
