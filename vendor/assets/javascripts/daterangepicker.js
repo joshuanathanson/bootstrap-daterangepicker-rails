@@ -142,6 +142,8 @@
             this.ranges = {};
 
             this.opens = 'right';
+            this.swappedPositions = false;
+
             if (this.element.hasClass('pull-right'))
                 this.opens = 'left';
 
@@ -382,7 +384,7 @@
                 calendar: []
             };
 
-            if (this.opens == 'right') {
+            if (this.opens == 'right' && !this.swappedPositions) {
                 //swap calendar positions
                 var left = this.container.find('.calendar.left');
                 var right = this.container.find('.calendar.right');
@@ -399,6 +401,8 @@
                     left.show();
                     right.hide();
                 }
+
+                this.swappedPositions = true;
             }
 
             if (typeof options.ranges === 'undefined' && !this.singleDatePicker) {
